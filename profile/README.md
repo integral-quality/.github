@@ -1,10 +1,10 @@
 # boundary
 
-**boundary** researches tools and methods for evaluating and improving software test quality, including the actual test frameworks.
+Research and experiments on software testing systems.
 
-## Current Work
+## Projects
 
-### [metatest](https://github.com/at-boundary/metatest)
+## [metatest](https://github.com/at-boundary/metatest) - Test quality evaluation using property based fault simulations
 
 A framework for measuring REST API test quality through fault simulation. Tests are instrumented transparently via bytecode weaving, no changes to existing test code are needed. During a simulation run, HTTP responses are systematically mutated and the test suite is re-executed against each variant. Faults that the tests fail to detect are reported.
 
@@ -14,7 +14,7 @@ This is the key departure from code-level mutation testing. Property-based testi
 
 In practice, you define invariants for your API endpoints in YAML files alongside your existing tests. Metatest handles instrumentation and simulation; no changes to test code or application code are required.
 
-### [antigen](https://github.com/at-boundary/antigen)
+## [antigen](https://github.com/at-boundary/antigen) - Self-validating LLM Test Generation using [metatest](https://github.com/at-boundary/metatest)
 
 A tool for automated API test generation. Given an API specification, antigen uses an LLM to generate an initial test suite, then validates it through compilation, execution, and metatest fault simulation. Tests that pass execution but fail to detect injected faults are revised automatically until they meet a configurable detection threshold.
 
