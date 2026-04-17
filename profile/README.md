@@ -31,3 +31,25 @@ The broader interest is in the relationship between test design and defect detec
 - Where can automated test generation reliably produce useful tests, and where does it fall short?
 
 These are partly engineering questions and partly empirical ones. The current tools are a starting point for exploring them in a practical context.
+
+## [loreval](https://github.com/integral-quality/loreval) — LLM logic and reasoning evaluation on puzzle design and solving
+
+  A benchmark and CLI for measuring language model performance on grid-based spatial puzzles. Two evaluation tasks are supported: solving    
+  puzzles the model has not seen before, and generating new puzzles given a set of constraints. Outcomes are binary — a puzzle is either     
+  solved or it isn't, a generated puzzle is either solvable or it isn't — so no scoring rubrics or LLM-as-judge are required.
+
+  Puzzles are defined in a small domain-specific language. A level specifies a grid of tiles, a legend mapping characters to tile types, and 
+  agent declarations with start positions and goals. Mechanics include locked doors that require a matching switch to open, paint tiles that 
+  change an agent's color, one-way tiles, and multi-agent configurations where agents block each other like walls. The difficulty of a puzzle   is a function of how many mechanics interact and in what order they must be resolved, making it possible to construct problems that demand   multi-step causal planning rather than path-finding.
+
+  The design task is the less common of the two. Most spatial reasoning benchmarks test only the solver direction: give the model a problem, 
+  check the answer. Testing whether a model can construct a well-formed problem — one that is solvable, uses its mechanics purposefully      
+  rather than decoratively, and meets a difficulty specification — tests a different and arguably harder capability. A *loop* evaluation     
+  combines both directions: one model designs a puzzle, another attempts to solve it. This measures whether design capability and solution   
+  capability are correlated, within and across model families.
+
+  A BFS-based validator checks solvability and identifies which mechanics appear in the optimal solution path versus which are placed but    
+  never required, giving a second signal on generated puzzle quality beyond parse validity.
+
+  The companion web tool ([loreval.ai](https://loreval.ai)) provides a visual level editor for designing puzzles and exporting `.lrev` files 
+  for use with the CLI.
