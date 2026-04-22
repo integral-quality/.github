@@ -1,6 +1,6 @@
 # Integral Quality
 
-Research and experiments on software testing systems.
+Research and experiments on various software testing puzzles
 
 ## Projects
 
