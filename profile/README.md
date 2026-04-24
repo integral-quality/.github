@@ -1,7 +1,5 @@
 # Integral Quality
 
-Research and experiments on software quality puzzles
-
 ## Projects
 
 ## [metatest](https://github.com/integral-quality/metatest) - Test quality evaluation using property based fault simulations
